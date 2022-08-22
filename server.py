@@ -11,7 +11,7 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 
 @app.route("/")
 def index():
-    pass
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
