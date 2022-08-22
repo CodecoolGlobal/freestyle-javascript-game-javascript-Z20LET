@@ -1,6 +1,4 @@
 from psycopg2 import sql
-from datetime import datetime
-
 import database_connection
 
 
@@ -12,7 +10,7 @@ import database_connection
 #     cursor.execute(query)
 #
 # insert_data()
-
+#
 # @database_connection.connection_handler
 # def insert_score(cursor):
 #     query = f"""
