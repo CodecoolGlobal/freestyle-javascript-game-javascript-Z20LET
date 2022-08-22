@@ -19,3 +19,14 @@ import database_connection
 #     cursor.execute(query)
 #
 # insert_score()
+
+@database_connection.connection_handler
+def list_sores(cursor):
+    query = f"""
+    SELECT name, score, time
+    FROM users
+    LEFT JOIN scores on users.id=scores.users_id
+    GROUP BY users.id, scores.score, scores.time
+    """
+    cursor.execute(query)
+    return cursor.fetchall()
