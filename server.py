@@ -26,6 +26,11 @@ def scores():
     return render_template('scores.html', scores_data=scores_data)
 
 
+@app.route("/menu")
+def menu():
+    return render_template("index.html")
+
+
 if __name__ == "__main__":
     app.run(
         debug=True,
