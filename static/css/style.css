@@ -1,5 +1,6 @@
 
 #score { text-align: center; }
+#life { text-align: center; }
 
 
 #menu {
@@ -35,7 +36,24 @@
   animation: rock 1.13s linear;
 }
 
+#meat {
+  width: 75px;
+  height: 50px;
+  position: relative;
+  top: 45px;
+  left: 450px;
+  background-image: url("/static/images/Pork-Steak-clipart-transparent.png");
+  background-size: cover;
+  animation: meat 4.0s linear;
+}
+
+
 @keyframes rock {
+  0%{left: 550px;}
+  100%{left: -50px;}
+}
+
+@keyframes meat {
   0%{left: 550px;}
   100%{left: -50px;}
 }
