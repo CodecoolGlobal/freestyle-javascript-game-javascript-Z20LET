@@ -44,3 +44,19 @@
   75%{top: 75px;}
   100%{top: 225px;}
 }
+
+#high_scores {
+  height: 300px;
+  width: 300px;
+  top: 225px;
+  position: center;
+  margin: auto;
+  background-image: url("/static/images/high_scores.jpg");
+  background-size: cover;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px
+}
