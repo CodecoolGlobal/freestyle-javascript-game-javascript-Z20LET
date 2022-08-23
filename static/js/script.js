@@ -96,3 +96,4 @@ function touching(d1, d2) {
 
 let t = touching(d1, d2) // should return whether they are touching
 console.log(t)
+// #blabla
