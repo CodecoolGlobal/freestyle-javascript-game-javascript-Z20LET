@@ -33,7 +33,7 @@
   left: 550px;
   background-image: url("/static/images/rock.png");
   background-size: cover;
-  animation: rock 1.13s linear;
+  animation: rock 2s linear;
 }
 
 #meat {
