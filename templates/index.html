@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv=X-UA-Compatible" content="IE-edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Main Menu</title>
+    <script src="/static/js/script.js"> defer</script>
 </head>
 <body>
-
+    <div id="menu">
+        <div>Dino Jump</div>
+        <form>Name</form>
+        <button>Start Game</button>
+    </div>
 </body>
+
+
+
+
+
     <div class="container">
     <button> <a href="/game">Play the game</a> </button>
     <button> <a href="/scores">High scores</a> </button>
