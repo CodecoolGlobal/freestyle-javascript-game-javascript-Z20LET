@@ -14,6 +14,18 @@ def index():
     return render_template('index.html')
 
 
+@app.route("/game")
+def game():
+    return render_template('game.html')
+
+
+@app.route("/scores")
+def scores():
+    scores_data = data_manager.list_sores()
+    print(scores)
+    return render_template('scores.html', scores_data=scores_data)
+
+
 if __name__ == "__main__":
     app.run(
         debug=True,

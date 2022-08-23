@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+     <div id="high_scores"></div>
+     <div class="container" margin-right="auto" margin-right="auto">
+    <table class="center">   <!-- class="table table-hover table-condensed"-->
+     <tr class="table-info">
+         <th>Name</th>
+         <th>Score</th>
+         <th>Time</th>
+     </tr>
+
+    {% for scores in scores_data %}
+    <tr class="table-info">
+        <td> {{ scores.name }}</td>
+        <td> {{ scores.score }}</td>
+        <td> {{ scores.time.strftime("%m-%d %H:%M") }}</td>
+    </tr>
+    {% endfor %}
+     </table>
+     </div>
 
 </body>
 </html>
