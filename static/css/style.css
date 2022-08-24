@@ -240,11 +240,16 @@ td {
 
 .jump-animation {
   animation: jump 0.7s;
+  /*animation-direction: alternate;*/
 }
 
 @keyframes jump {
-  0%,
-  100% {transform: translateY(-1px);}
-  50% {transform: translateY(-2px);}
-  25% {transform: translateY(-100px)}
+  100% {transform: translateY(-100px)}
+  /*100% {transform: translateY(0px)}*/
+
+
+  /*0%,*/
+  /*100% {transform: translateY(-1px);}*/
+  /*50% {transform: translateY(-2px);}*/
+  /*25% {transform: translateY(-100px)}*/
 }
