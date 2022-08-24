@@ -145,10 +145,10 @@ const updateImage = function() {
     if (index >= sprites.length){
         index = 0;
     }
-    console.log(sprites[index])
+    // console.log(sprites[index])
     dino.style.backgroundImage = 'url("' + sprites[index] + '")';
     index ++
-    console.log(dino.style)
+    // console.log(dino.style)
 }
 
 updateImage()
