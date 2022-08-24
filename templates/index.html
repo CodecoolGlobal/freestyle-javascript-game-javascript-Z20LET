@@ -3,36 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Dino Jump</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/style.css"/>
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     <script src="../static/js/game.js" defer></script>
 </head>
 <body id="index">
 <div class="container" id="page">
     <div class="title" data-splitting="lines">
-      DINO<br/>
-      JUMP
+        DINO<br/>
+        JUMP
     </div>
-     <form method="POST" class="container" id="nameInput">
-         <input type="text" id="name" name='name' placeholder="ENTER NAME" class="form-control form-control-lg" required>
+    <form method="POST" class="container" id="nameInput">
+        <input type="text" id="name" name='name' placeholder="ENTER NAME" class="form-control form-control-lg" required>
         <button id="start_game" class="btn btn-primary" type="submit">
-            START
+            <a href="/game">START</a>
         </button>
-     </form>
-     <div class="link">
-         <a href="/scores">HIGH SCORES</a>
-     </div>
- </div>
-</body>
-
-
-
-
-
-    <div class="container">
-    <button> <a href="/game">Play the game</a> </button>
-    <button> <a href="/scores">High scores</a> </button>
+    </form>
+    <div class="link">
+        <a href="/scores">HIGH SCORES</a>
     </div>
+</div>
+</body>
 </html>
 
