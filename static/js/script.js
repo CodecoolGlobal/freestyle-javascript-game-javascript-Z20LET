@@ -7,17 +7,18 @@ let food = 1
 window.hit = true
 let left = 0;
 
-function moveRightLeft(e) {
-    if (e.keyCode === 39) {
+
+
+function moveRight() {
         left += 20;
         dino.style.left = left + "px";
-    }
-    if (e.keyCode === 37) {
+}
+
+
+function moveLeft(){
         left -= 20;
         dino.style.left = left + "px";
-    }
 }
-document.onkeydown = moveRightLeft;
 
 
 function jump() {
@@ -26,20 +27,20 @@ function jump() {
     setTimeout(() => dino.classList.remove("jump-animation"), 400);
 }
 
-function run_right() {
-    window.hungry = true
-    dino.classList.add("move-right-animation");
-    setTimeout(() =>
-        dino.classList.remove("jump-animation"), 700);
-}
 
-document.addEventListener('keypress', (event) => {
+document.addEventListener('keydown', (event) => {
     console.log(event)
+    if (event.code === 'ArrowRight'){
+        moveRight();
+    }
+    if (event.code === 'ArrowLeft'){
+        moveLeft();
+    }
     if ((event.code === 'Space') && (!dino.classList.contains('jump-animation'))) {
         jump();
+
     }
-    if ((event.code === 'KeyD') && (!dino.classList.contains('move-right-animation'))) {
-        run_right();}
+
 })
 
 
