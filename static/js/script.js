@@ -34,3 +34,22 @@ setInterval(() => {
   }
 }, 50);
 
+ setInterval(() => {
+      const targetAspectRatio = 16/9;
+      const root = document.querySelector("#root");
+      const container = document.querySelector("#container");
+      const rootBoundingRect = root.getBoundingClientRect();
+
+      const rootDivAspect = rootBoundingRect.width / rootBoundingRect.height;
+      if (rootDivAspect > targetAspectRatio) {
+          container.style.height = "100%";
+          const newWidth = rootBoundingRect.width * (targetAspectRatio / rootDivAspect)
+          container.style.width = newWidth + "px";
+      } else {
+          container.style.width = "100%";
+          const newHeight = rootBoundingRect.height * (rootDivAspect / targetAspectRatio);
+          container.style.height = newHeight + "px";
+      }
+
+  }, 1000);
+
