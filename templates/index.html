@@ -14,15 +14,12 @@
       DINO<br/>
       JUMP
     </div>
-     <div class="container" id="nameInput">
-        <div class="p-3">
-            <input type="text" id="name" placeholder="ENTER NAME" class="form-control form-control-lg">
-        </div>
-     <div class="p-3">
-        <button id="start_game" class="btn btn-primary">
+     <form method="POST" class="container" id="nameInput">
+         <input type="text" id="name" name='name' placeholder="ENTER NAME" class="form-control form-control-lg" required>
+        <button id="start_game" class="btn btn-primary" type="submit">
             START
         </button>
-    </div>
+     </form>
      <div class="link">
          <a href="/scores">HIGH SCORES</a>
      </div>

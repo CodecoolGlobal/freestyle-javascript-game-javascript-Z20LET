@@ -133,14 +133,9 @@ a:active {
 
 /*SCORE PAGE*/
 
-/*#high_scores {*/
-/*  height: 300px;*/
-/*  width: 300px;*/
-/*  top: 225px;*/
-/*  position: center;*/
-/*  margin: auto;*/
-/*  background-size: cover;*/
-/*}*/
+#high_scores {
+  padding-bottom: 0.3em;
+}
 
 .table {
   font-size: 30px;
