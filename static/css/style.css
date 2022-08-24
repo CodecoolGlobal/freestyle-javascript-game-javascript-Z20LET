@@ -211,6 +211,7 @@ td {
 }
 
 #rock {
+  display: none;
   z-index: 10;
   width: 350px;
   height: 350px;
@@ -341,6 +342,15 @@ td {
 
 @keyframes close {
   from {
+    background-position: 600000px
+  }
+  to {
+    background-position: 1px
+  }
+}
+
+@keyframes grass {
+  from {
     background-position: 700000px
   }
   to {
@@ -365,6 +375,7 @@ td {
     background-position: 1px
   }
 }
+
 
 #root {
     position: absolute;

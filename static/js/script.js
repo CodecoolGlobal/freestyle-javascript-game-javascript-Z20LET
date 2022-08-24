@@ -67,8 +67,8 @@ setInterval(() => {
         food -= 2;
         life.innerText = food
         if (food<=0){
-            alert("You got a score of: " + score.innerText +
-            "\n\nPlay again?");
+            //alert("You got a score of: " + score.innerText +
+            //"\n\nPlay again?");
             location.reload();}
     }
 
@@ -103,3 +103,29 @@ setInterval(() => {
 
   }, 1000);
 
+ const sprites = [
+     "/static/images/freedinosprite/png/Run (1).png",
+     "/static/images/freedinosprite/png/Run (2).png",
+     "/static/images/freedinosprite/png/Run (3).png",
+     "/static/images/freedinosprite/png/Run (4).png",
+     "/static/images/freedinosprite/png/Run (5).png",
+     "/static/images/freedinosprite/png/Run (6).png",
+     "/static/images/freedinosprite/png/Run (7).png",
+     "/static/images/freedinosprite/png/Run (8).png"
+ ];
+
+let index = 0
+
+const updateImage = function() {
+    if (index >= sprites.length){
+        index = 0;
+    }
+    console.log(sprites[index])
+    dino.style.backgroundImage = 'url("' + sprites[index] + '")';
+    index ++
+    console.log(dino.style)
+}
+
+updateImage()
+
+let interval = setInterval(updateImage, 100);
