@@ -199,6 +199,7 @@ td {
   height: 75px;
   width: 75px;
   top: 225px;
+  left: 0;
   position: relative;
   background-image: url("/static/images/dino.png");
   background-size: cover;
@@ -238,12 +239,12 @@ td {
 }
 
 .jump-animation {
-  animation: jump 0.4s;
+  animation: jump 0.7s;
 }
 
 @keyframes jump {
-  0%{top: 225px;}
-  50%{top: 75px;}
-  75%{top: 75px;}
-  100%{top: 225px;}
+  0%,
+  100% {transform: translateY(-1px);}
+  50% {transform: translateY(-2px);}
+  25% {transform: translateY(-100px)}
 }

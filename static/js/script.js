@@ -5,6 +5,25 @@ const score = document.getElementById("score");
 const life = document.getElementById("life");
 let food = 1
 window.hit=true
+let left = 0;
+
+
+
+function moveRightLeft(e){
+    if (e.keyCode === 39){
+        left += 3;
+        dino.style.left = left + "px";
+    }
+    if (e.keyCode === 37){
+        left -= 3;
+        dino.style.left = left + "px";
+    }
+}
+
+
+document.onkeydown = moveRightLeft;
+
+
 
 function jump() {
     window.hungry = true
@@ -14,10 +33,11 @@ function jump() {
 }
 
 document.addEventListener('keypress', (event) => {
-    if (!dino.classList.contains('jump-animation')) {
+    if ((event.keyCode === 32) && (!dino.classList.contains('jump-animation'))) {
         jump();
     }
 })
+
 
 setInterval(() => {
     life.innerText = food
