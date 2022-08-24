@@ -4,13 +4,13 @@ const meat = document.getElementById("meat");
 const score = document.getElementById("score");
 const life = document.getElementById("life");
 let food = 1
-
+window.hit=true
 
 function jump() {
     window.hungry = true
     dino.classList.add("jump-animation");
     setTimeout(() =>
-        dino.classList.remove("jump-animation"), 700);
+        dino.classList.remove("jump-animation"), 400);
 }
 
 document.addEventListener('keypress', (event) => {
@@ -21,8 +21,6 @@ document.addEventListener('keypress', (event) => {
 
 setInterval(() => {
     life.innerText = food
-    const dinoTop = parseInt(window.getComputedStyle(dino)
-        .getPropertyValue('top'));
     const rockLeft = parseInt(window.getComputedStyle(rock)
         .getPropertyValue('left'));
     const meatLeft = parseInt(window.getComputedStyle(meat)
@@ -43,15 +41,6 @@ setInterval(() => {
 
     }
 
-    // if (rockLeft < 50 && rockLeft > 0 && dinoTop > 150) {
-    //     food -= 1;
-    //     life.innerText = food
-    //     if (food==0){
-    //         alert("You got a score of: " + score.innerText +
-    //         "\n\nPlay again?");
-    //     location.reload();}
-    //
-    // }
     let d1 = document.getElementById('dino').getBoundingClientRect();
     let d2 = document.getElementById('meat').getBoundingClientRect();
     let d3 = document.getElementById('rock').getBoundingClientRect();
@@ -81,5 +70,4 @@ setInterval(() => {
 
 
        // console.log(t)
-}, 16);
-
+}, 50);
