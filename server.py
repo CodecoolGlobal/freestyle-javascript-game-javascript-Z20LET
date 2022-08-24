@@ -17,11 +17,11 @@ def index():
         except UniqueViolation:
             pass
         session['username'] = request.form.get('name')
-        return redirect(url_for('game'))
+        # return redirect(url_for('game'))
     return render_template('index.html')
 
 
-@app.route("/game", methods=['GET', 'POST'])
+@app.route("/game")
 def game():
     return render_template('game.html')
 

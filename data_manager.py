@@ -23,7 +23,13 @@ def list_scores(cursor):
     cursor.execute(query)
     return cursor.fetchall()
 
-
+# @database_connection.connection_handler
+# def delete(cursor):
+#     query = """
+#     delete from users where name is Null;"""
+#     cursor.execute(query)
+#
+# delete()
 # @database_connection.connection_handler
 # def insert_data(cursor):
 #     query = """
@@ -37,7 +43,7 @@ def list_scores(cursor):
 # @database_connection.connection_handler
 # def insert_score(cursor):
 #     query = f"""
-#         INSERT INTO scores(users_id, score) VALUES (6, 72);
+#         INSERT INTO scores(users_id, score) VALUES (17, 111);
 #     """
 #     cursor.execute(query)
 #

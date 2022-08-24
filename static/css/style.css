@@ -51,8 +51,8 @@ body { margin: auto;}
 }
 
 .title {
-  --min-font-size: 70;
-  --max-font-size: 140;
+  --min-font-size: 90;
+  --max-font-size: 160;
   font-size: calc(var(--min-font-size) * 1px);
 }
 
@@ -74,6 +74,10 @@ body { margin: auto;}
   align-items: center;
   row-gap: 80px;
   font-family: 'Silkscreen', cursive;
+}
+
+.inactive {
+  display: none;
 }
 
 .btn {
@@ -99,12 +103,21 @@ body { margin: auto;}
 
 #name {
   font-family: 'Silkscreen', cursive;
-  font-size: 24px;
+  font-size: 34px;
   text-align: center;
 }
 
 input:focus::placeholder {
   color: transparent;
+}
+
+#username {
+  font-family: 'Silkscreen', cursive;
+  font-size: 34px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  margin: 0;
 }
 
 .link {
@@ -134,7 +147,7 @@ a:active {
 /*SCORE PAGE*/
 
 #high_scores {
-  padding-bottom: 0.3em;
+  padding-bottom: 0.2em;
 }
 
 .table {
