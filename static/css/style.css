@@ -133,14 +133,9 @@ a:active {
 
 /*SCORE PAGE*/
 
-/*#high_scores {*/
-/*  height: 300px;*/
-/*  width: 300px;*/
-/*  top: 225px;*/
-/*  position: center;*/
-/*  margin: auto;*/
-/*  background-size: cover;*/
-/*}*/
+#high_scores {
+  padding-bottom: 0.3em;
+}
 
 .table {
   font-size: 30px;
@@ -191,27 +186,34 @@ td {
 #score { text-align: center; }
 #life { text-align: center; }
 
+
+#menu {
+  background-image: ;
+}
+
 #game {
-  width: 600px;
-  height: 300px;
-  border: 2px solid black;
-  margin: auto;
-  background-image: url("/static/images/background.jpg");
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  position: absolute;
   background-size: cover;
 }
 
 #dino {
-  height: 75px;
-  width: 75px;
-  top: 225px;
+  z-index: 10;
+  height: 400px;
+  width: 400px;
+  left: 50px;
+  top: 620px;
   position: relative;
-  background-image: url("/static/images/dino.png");
+  background-image: url("/static/images/freedinosprite/png/Run (1).png");
   background-size: cover;
 }
 
 #rock {
-  width: 50px;
-  height: 50px;
+  z-index: 10;
+  width: 350px;
+  height: 350px;
   position: relative;
   top: 175px;
   left: 550px;
@@ -231,10 +233,11 @@ td {
   animation: meat 1.0s linear;
 }
 
-/*@keyframes rock {*/
-/*  0%{left: 550px;}*/
-/*  100%{left: -50px;}*/
-/*}*/
+
+@keyframes rock {
+  0%{left: 550px;}
+  100%{left: -50px;}
+}
 
 @keyframes meat {
   0%{left: 550px;}
@@ -252,15 +255,132 @@ td {
   100%{top: 225px;}
 }
 
-.move-right-animation {
-  /*bottom: 15%;*/
-  position: relative;
-  -webkit-animation: linear infinite;
-  -webkit-animation-name: run_right;
-  -webkit-animation-duration: 1s;
+#high_scores {
+  height: 300px;
+  width: 300px;
+  top: 225px;
+  position: center;
+  margin: auto;
+  background-image: url("/static/images/high_scores.jpg");
+  background-size: cover;
 }
-@-webkit-keyframes run_right {
-  0% {left: 0;}
-  100% {left: 100px;}
-  /*100% {left: 0;}*/
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px
+}
+
+#moon {
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  background-image: url("/static/images/bacgound_layers/moon.png");
+}
+
+#stars {
+  top: -60px;
+  left: 80px;
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  background-image: url("/static/images/bacgound_layers/stars.png");
+}
+
+#trees_far {
+  z-index: 3;
+  height: 100vh;
+  width: 100%;
+  top: 1rem;
+  position: absolute;
+  background-size: cover;
+  background-image: url("/static/images/bacgound_layers/trees_far.png");
+  background-repeat: repeat-x;
+  animation: far linear 9000s, infinite;
+}
+
+
+#trees_close {
+  z-index: 4;
+  height: 100vh;
+  width: 100%;
+  buttom: 3rem;
+  position: absolute;
+  background-size: cover;
+  background-image: url("/static/images/bacgound_layers/trees_close.png");
+  background-repeat: repeat-x;
+  animation: tree linear 9000s, infinite;
+}
+
+
+#grass {
+  z-index: 6;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  bottom: 15rem;
+  background-size: auto;
+  background-image: url("/static/images/bacgound_layers/grass.png");
+  animation: grass linear 9000s, infinite;
+}
+
+#ground {
+  z-index: 5;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 3rem;
+  background-size: cover;
+  background-image: url("/static/images/bacgound_layers/ground.png");
+  animation: close linear 9000s, infinite;
+}
+
+@keyframes close {
+  from {
+    background-position: 700000px
+  }
+  to {
+    background-position: 1px
+  }
+}
+
+@keyframes tree {
+  from {
+    background-position: 500000px
+  }
+  to {
+    background-position: 1px
+  }
+}
+
+@keyframes far {
+  from {
+    background-position: 300000px
+  }
+  to {
+    background-position: 1px
+  }
+}
+
+#root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#container {
+    position: relative;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+}
+
+#content {
+    position: absolute;
 }
