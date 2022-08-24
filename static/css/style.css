@@ -1,4 +1,187 @@
+/*INDEX PAGE FOR GAME*/
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap:800');
 
+#index { background: hsl(520, 70%, 30%) }
+#scores { background: hsl(294, 78%, 35%) }
+html { height: 100%; display: flex}
+body { margin: auto;}
+
+.title {
+  text-align: center;
+  font-family: 'Silkscreen', cursive;
+  font-weight: 800;
+  font-size: calc(20vw / var(--word-total) );
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  transform: perspective(300px) scaleY(1.5) rotateX(-40deg);
+  transform-style: preserve-3d;
+  --layer-depth: 0.32em;
+}
+
+.title .word {
+  position: relative;
+  display: inline-block;
+  color: darkred;
+  font-size: calc(((var(--line-index) + 1) * 25%) + 50%); /* We skew font-sizes to avoid emphasize on the top, due to perspective rotation */
+  text-shadow: 0.06em 0 black, 0.06em 0.06em black, 0 0.06em black, -0.06em 0.06em black, -0.06em 0 black, -0.06em -0.06em black, 0 -0.06em black, 0.06em -0.06em black;
+  transform-style: preserve-3d; /* Important as above, we need to make sure the pseudos share the same 3D space */
+}
+
+.title .word::before,
+.title .word::after {
+  content: attr(data-word);
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.title .word::before {
+  color: darkred;
+  text-shadow: 0.02em 0 black, 0.02em 0.02em black, 0 0.02em black, -0.02em 0.02em black, -0.02em 0 black, -0.02em -0.02em black, 0 -0.02em black, 0.02em -0.02em black;
+  transform: translateZ(calc(var(--layer-depth) * -0.5));
+}
+
+.title .word::after {
+  color: black;
+  text-shadow: none;
+  transform: translateZ(calc(var(--layer-depth) * -1));
+}
+
+.title {
+  --min-font-size: 70;
+  --max-font-size: 140;
+  font-size: calc(var(--min-font-size) * 1px);
+}
+
+@media screen and (min-width: 320px) {
+  .title {
+    font-size: calc(var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) * ((100vw - 320px) / 680));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .title {
+    font-size: calc(var(--max-font-size) * 1px);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 80px;
+  font-family: 'Silkscreen', cursive;
+}
+
+.btn {
+  transition-duration: 0.4s;
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  font-family: 'Silkscreen', cursive;
+  font-weight: 800;
+  width: 200px;
+  height: 80px;
+}
+
+.btn:hover {
+  background-color: darkred;
+  color: white;
+}
+
+#name {
+  font-family: 'Silkscreen', cursive;
+  font-size: 24px;
+  text-align: center;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.link {
+  font-size: 35px;
+  color: white;
+  text-decoration-color: white;
+}
+
+a:link {
+  text-decoration: none;
+  color: white
+}
+a:visited {
+  text-decoration: none;
+  color: white
+}
+a:hover {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+}
+a:active {
+  text-decoration: none;
+  color: white
+}
+
+/*SCORE PAGE*/
+
+#high_scores {
+  padding-bottom: 0.3em;
+}
+
+.table {
+  font-size: 30px;
+  text-align: left;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 720px;
+}
+
+table>thead {
+  border-bottom: 5px solid black;
+}
+
+table>tbody:last-child {
+   border-bottom: 5px solid black;
+}
+
+table>tbody {
+  /*animation: blinker 2s linear infinite;*/
+  background-color: hsl(294, 78%, 46%);
+}
+
+table>tbody:nth-child(2) {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    background-color: hsl(294, 78%, 36%)
+  }
+}
+
+td {
+  border-left: 5px dashed black;
+  border-right: 5px dashed black;
+  border-bottom:  5px dashed black;
+  height: 65px;
+}
+
+.container.btns {
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-end;
+  padding-top: 2em;
+}
+/*GAME STYLE*/
 
 #score { text-align: center; }
 #life { text-align: center; }
@@ -40,7 +223,6 @@
 }
 
 #meat {
-  z-index: 10;
   width: 75px;
   height: 50px;
   position: relative;
@@ -49,14 +231,13 @@
   background-image: url("/static/images/Pork-Steak-clipart-transparent.png");
   background-size: cover;
   animation: meat 1.0s linear;
-  animation: rock 1.13s linear;
 }
 
 
-/*@keyframes rock {
+@keyframes rock {
   0%{left: 550px;}
   100%{left: -50px;}
-}*/
+}
 
 @keyframes meat {
   0%{left: 550px;}
@@ -64,7 +245,7 @@
 }
 
 .jump-animation {
-  animation: jump 0.5s;
+  animation: jump 0.4s;
 }
 
 @keyframes jump {

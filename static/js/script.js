@@ -1,6 +1,10 @@
 const dino = document.getElementById("dino");
 const rock = document.getElementById("rock");
+const meat = document.getElementById("meat");
 const score = document.getElementById("score");
+const life = document.getElementById("life");
+let food = 1
+window.hit=true
 
 function jump() {
     window.hungry = true

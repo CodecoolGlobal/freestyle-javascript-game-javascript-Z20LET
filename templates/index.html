@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv=X-UA-Compatible" content="IE-edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Main Menu</title>
-    <script src="/static/js/script.js"> defer</script>
+    <title>Dino Jump</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script src="../static/js/game.js" defer></script>
 </head>
-<body>
-    <div id="menu">
-        <div>Dino Jump</div>
-        <form>Name</form>
-        <button>Start Game</button>
+<body id="index">
+<div class="container" id="page">
+    <div class="title" data-splitting="lines">
+      DINO<br/>
+      JUMP
     </div>
+     <form method="POST" class="container" id="nameInput">
+         <input type="text" id="name" name='name' placeholder="ENTER NAME" class="form-control form-control-lg" required>
+        <button id="start_game" class="btn btn-primary" type="submit">
+            START
+        </button>
+     </form>
+     <div class="link">
+         <a href="/scores">HIGH SCORES</a>
+     </div>
+ </div>
 </body>
 
 

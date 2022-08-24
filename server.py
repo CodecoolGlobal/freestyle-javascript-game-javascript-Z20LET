@@ -11,6 +11,13 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 
 @app.route("/")
 def index():
+    if request.method == 'POST':
+        try:
+            data_manager.add_user(request.form.get('name'))
+        except UniqueViolation:
+            pass
+        session['username'] = request.form.get('name')
+        return redirect(url_for('game'))
     return render_template('index.html')
 
 
@@ -21,8 +28,7 @@ def game():
 
 @app.route("/scores")
 def scores():
-    scores_data = data_manager.list_sores()
-    print(scores)
+    scores_data = data_manager.list_scores()
     return render_template('scores.html', scores_data=scores_data)
 
 

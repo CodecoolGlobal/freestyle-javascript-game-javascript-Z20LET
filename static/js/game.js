@@ -1,3 +1,5 @@
+// import Splitting from "splitting";
+
 initGame();
 
 function initGame() {
