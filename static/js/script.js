@@ -13,10 +13,22 @@ function jump() {
         dino.classList.remove("jump-animation"), 400);
 }
 
+function run_right() {
+    window.hungry = true
+    dino.classList.add("move-right-animation");
+    setTimeout(() =>
+        dino.classList.remove("move-right-animation"), 400);
+}
+
 document.addEventListener('keypress', (event) => {
-    if (!dino.classList.contains('jump-animation')) {
+    console.log(event)
+    if ((event.code === 'Space') && (!dino.classList.contains('jump-animation'))) {
         jump();
     }
+    if ((event.code === 'KeyD') && (!dino.classList.contains('move-right-animation'))) {
+        run_right();
+    }
+
 })
 
 setInterval(() => {

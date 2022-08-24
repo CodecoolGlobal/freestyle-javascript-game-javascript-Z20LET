@@ -231,11 +231,10 @@ td {
   animation: meat 1.0s linear;
 }
 
-
-@keyframes rock {
-  0%{left: 550px;}
-  100%{left: -50px;}
-}
+/*@keyframes rock {*/
+/*  0%{left: 550px;}*/
+/*  100%{left: -50px;}*/
+/*}*/
 
 @keyframes meat {
   0%{left: 550px;}
@@ -251,4 +250,17 @@ td {
   50%{top: 75px;}
   75%{top: 75px;}
   100%{top: 225px;}
+}
+
+.move-right-animation {
+  /*bottom: 15%;*/
+  position: relative;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run_right;
+  -webkit-animation-duration: 1s;
+}
+@-webkit-keyframes run_right {
+  0% {left: 0;}
+  100% {left: 100px;}
+  /*100% {left: 0;}*/
 }
