@@ -9,26 +9,27 @@ app.secret_key = b'\x1dH@\xb94\xc9\xb0\x8e\xd5\xa8\xfe\\r\x00\x0c\xb4'
 app.permanent_session_lifetime = timedelta(minutes=30)
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        try:
+            data_manager.add_user(request.form.get('name'))
+        except UniqueViolation:
+            pass
+        session['username'] = request.form.get('name')
+        return redirect(url_for('game'))
     return render_template('index.html')
 
 
-@app.route("/game")
+@app.route("/game", methods=['GET', 'POST'])
 def game():
     return render_template('game.html')
 
 
 @app.route("/scores")
 def scores():
-    scores_data = data_manager.list_sores()
-    print(scores)
+    scores_data = data_manager.list_scores()
     return render_template('scores.html', scores_data=scores_data)
-
-
-@app.route("/menu")
-def menu():
-    return render_template("index.html")
 
 
 if __name__ == "__main__":
