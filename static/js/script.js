@@ -30,9 +30,8 @@ function run_right() {
     window.hungry = true
     dino.classList.add("move-right-animation");
     setTimeout(() =>
-        dino.classList.remove("move-right-animation"), 400);
+        dino.classList.remove("jump-animation"), 700);
 }
-
 
 document.addEventListener('keypress', (event) => {
     console.log(event)
@@ -46,6 +45,8 @@ document.addEventListener('keypress', (event) => {
 
 setInterval(() => {
     life.innerText = food
+    const dinoTop = parseInt(window.getComputedStyle(dino)
+        .getPropertyValue('top'));
     const rockLeft = parseInt(window.getComputedStyle(rock)
         .getPropertyValue('left'));
     const meatLeft = parseInt(window.getComputedStyle(meat)
@@ -54,7 +55,7 @@ setInterval(() => {
 
     if (rockLeft < 0) {
         rock.style.display = 'none';
-        window.hit = true
+        window.hit=true
 
     } else {
         rock.style.display = ''
@@ -66,6 +67,15 @@ setInterval(() => {
 
     }
 
+    // if (rockLeft < 50 && rockLeft > 0 && dinoTop > 150) {
+    //     food -= 1;
+    //     life.innerText = food
+    //     if (food==0){
+    //         alert("You got a score of: " + score.innerText +
+    //         "\n\nPlay again?");
+    //     location.reload();}
+    //
+    // }
     let d1 = document.getElementById('dino').getBoundingClientRect();
     let d2 = document.getElementById('meat').getBoundingClientRect();
     let d3 = document.getElementById('rock').getBoundingClientRect();
@@ -116,5 +126,31 @@ setInterval(() => {
         container.style.height = newHeight + "px";
     }
 
-}, 1000);
+  }, 1000);
 
+ const sprites = [
+     "/static/images/freedinosprite/png/Run (1).png",
+     "/static/images/freedinosprite/png/Run (2).png",
+     "/static/images/freedinosprite/png/Run (3).png",
+     "/static/images/freedinosprite/png/Run (4).png",
+     "/static/images/freedinosprite/png/Run (5).png",
+     "/static/images/freedinosprite/png/Run (6).png",
+     "/static/images/freedinosprite/png/Run (7).png",
+     "/static/images/freedinosprite/png/Run (8).png"
+ ];
+
+let index = 0
+
+const updateImage = function() {
+    if (index >= sprites.length){
+        index = 0;
+    }
+    console.log(sprites[index])
+    dino.style.backgroundImage = 'url("' + sprites[index] + '")';
+    index ++
+    console.log(dino.style)
+}
+
+updateImage()
+
+let interval = setInterval(updateImage, 100);
