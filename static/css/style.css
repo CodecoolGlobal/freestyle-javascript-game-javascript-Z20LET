@@ -216,7 +216,7 @@ td {
   height: 250px;
   position: relative;
   top: 300px;
-  left: 1900px;
+  left: 1800px;
   background-image: url("/static/images/rock.png");
   background-size: cover;
   animation: rock 2s linear;
@@ -227,11 +227,11 @@ td {
   width: 150px;
   height: 125px;
   position: relative;
-  top: 300px;
-  left: 1450px;
+  top: 250px;
+  left: 1850px;
   background-image: url("/static/images/Pork-Steak-clipart-transparent.png");
   background-size: cover;
-  animation: meat 3.0s linear;
+  animation: meat 5.0s linear;
 }
 
 
@@ -241,7 +241,7 @@ td {
 /*}*/
 
 @keyframes meat {
-  0%{left: 1450px;}
+  0%{left: 1850px;}
   100%{left: -50px;}
 }
 
