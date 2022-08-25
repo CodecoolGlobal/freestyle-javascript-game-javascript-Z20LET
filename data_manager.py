@@ -38,7 +38,7 @@ def get_user_scores(cursor, username):
 
 
 @database_connection.connection_handler
-def get_user_id(cursor, sername):
+def get_user_id(cursor, username):
     query = """
     SELECT id FROM users WHERE name ILIKE %(un)s;"""
     cursor.execute(query, {'un': username})
@@ -49,7 +49,7 @@ def get_user_id(cursor, sername):
 def add_user_score(cursor, user_id, score):
     query = """
     INSERT INTO scores(users_id, score) VALUES(%(u_id)s, %(sc)s);"""
-    cursor.execute(query)
+    cursor.execute(query, {'u_id': user_id, 'sc': score})
 
 # @database_connection.connection_handler
 # def delete(cursor):
