@@ -42,7 +42,6 @@ def my_scores(username):
 def process_score(userscore, username):
     userscore = json.loads(userscore)
     username = json.loads(username)
-    print(username)
     user_id = data_manager.get_user_id(username)
     data_manager.add_user_score(user_id.get('id'), userscore)
     return redirect(url_for('my_scores', username=username))

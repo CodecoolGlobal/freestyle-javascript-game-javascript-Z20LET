@@ -1,4 +1,3 @@
-from psycopg2 import sql
 import database_connection
 
 
@@ -52,31 +51,6 @@ def add_user_score(cursor, user_id, score):
     INSERT INTO scores(users_id, score) VALUES(%(u_id)s, %(sc)s);"""
     cursor.execute(query, {'u_id': user_id, 'sc': score})
 
-# @database_connection.connection_handler
-# def delete(cursor):
-#     query = """
-#     delete from users where name is Null;"""
-#     cursor.execute(query)
-# #
-# delete()
-# @database_connection.connection_handler
-# def insert_data(cursor):
-#     query = """
-#         INSERT INTO users(name) VALUES ('Morty');
-#     """
-#     cursor.execute(query)
-#
-# insert_data()
-
-#
-# @database_connection.connection_handler
-# def insert_score(cursor):
-#     query = f"""
-#         INSERT INTO scores(users_id, score) VALUES (17, 111);
-#     """
-#     cursor.execute(query)
-#
-# insert_score()
 
 @database_connection.connection_handler
 def list_sores(cursor):

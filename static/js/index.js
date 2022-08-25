@@ -48,8 +48,6 @@ function newUser() {
     const btnDiv = document.querySelector('#btnDiv');
     const scoreLink = document.querySelector('a');
     const hiddenInput = document.querySelector('[type=hidden]');
-    // const nameInput = document.querySelector('#name');
-    // nameInput.replaceWith("<input type='text' id='name' name='name' placeholder='ENTER NAME' class='form-control form-control-lg' required>");
     pDiv.classList.add('inactive');
     btnDiv.classList.add('inactive');
     document.querySelector('p').innerText = '';
