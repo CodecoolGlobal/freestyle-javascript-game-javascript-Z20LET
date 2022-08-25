@@ -72,23 +72,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
+        let keyPressed = []
+
+        function stop() {
+            keyPressed.shift()
+
+        }
+
         function control(e) {
             if (e.keyCode === 32) {
-                jump();
-            } else if (e.keyCode === 39) {
+                jump()
+
+            } else if (e.keyCode === 39 && !(keyPressed.includes(39))) {
+                if (keyPressed.includes(37)) {
+                    keyPressed.shift()
+                }
+                keyPressed.push(39)
                 moveRight()
-                // if ((parseInt(window.getComputedStyle(dino).getPropertyValue('left'))) > 600){
-                //     dino.style.right = 600 + 'px'
-                // }
-            } else if (e.keyCode === 37) {
+
+            } else if (e.keyCode === 37 && !(keyPressed.includes(37))) {
+                if (keyPressed.includes(39)) {
+                    keyPressed.shift()
+                }
+                keyPressed.push(37)
                 moveLeft()
-                // if ((parseInt(window.getComputedStyle(dino).getPropertyValue('left'))) < 0){
-                //     dino.style.left = 0 + 'px'
+                // } else if (e.keyCode === undefined) {
+                //     let dinoLeft = parseInt(window.getComputedStyle(dino).getPropertyValue('left'))
+                //     dino.style.left = dinoLeft + 'px'
                 // }
             }
         }
 
-        document.addEventListener('keydown', control)
+
+        document.addEventListener("keydown", control)
+        // document.addEventListener("keyup", stop)
+
+
+        // let fire = 0
+        //
+        // let keyPressed = {}
+        // document.addEventListener('keydown', (event) => {
+        //     keyPressed[event.keyCode] = true
+        //     if (keyPressed[32]) {
+        //         jump()
+        //     } else if (keyPressed[39]) {
+        //         fire += 1
+        //         if (fire === 1) {
+        //             moveRight()
+        //         }
+        //     } else if (keyPressed[37]) {
+        //         fire += 1
+        //         if (fire === 1) {
+        //             moveLeft()
+        //         }
+        //     }
+        // })
+
+        // document.addEventListener('keyup', (event) => {
+        //     delete keyPressed[event.keyCode]
+        //     stop()
+        //     fire = 0
+        //     console.log(keyPressed)
+        // })
+
 
     }
 )
