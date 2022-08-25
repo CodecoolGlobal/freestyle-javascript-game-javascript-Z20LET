@@ -7,6 +7,7 @@ let food = 1
 window.hit = true
 let left = 0;
 let randomSeed = Math.floor(Math.random() * 6000);
+let randomSeed2 = Math.floor(Math.random() * 4000);
 
 
 
@@ -25,7 +26,7 @@ function moveLeft(){
 function jump() {
     window.hungry = true
     dino.classList.add("jump-animation");
-    setTimeout(() => dino.classList.remove("jump-animation"), 400);
+    setTimeout(() => dino.classList.remove("jump-animation"), 600);
 }
 
 
@@ -55,10 +56,12 @@ setInterval(() => {
 
     if (rockLeft < 0) {
         rock.style.display = 'none';
+        setTimeout(()=> {rock.style.display = '';
+            randomSeed2 = Math.floor(Math.random() * 4000);}, randomSeed2)
         window.hit=true
 
-    } else {
-        rock.style.display = ''
+    // } else {
+    //     rock.style.display = ''
     }
     if (meatLeft < 0) {
         meat.style.display = 'none';
@@ -73,6 +76,7 @@ setInterval(() => {
     function touching(d1, d2) {
         if (((d1.right>d2.left) && (d1.left<d2.right)) && ((d1.top>d2.bottom) && (d1.bottom<d2.top)))
             {return true;}
+        else {return false}
     }
 
     let t = touching(dinoRect, rockRectangle)

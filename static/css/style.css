@@ -231,7 +231,7 @@ td {
   width: 250px;
   height: 250px;
   position: relative;
-  top: 300px;
+  top: 350px;
   left: 1800px;
   background-image: url("/static/images/rock.png");
   background-size: cover;
@@ -243,7 +243,7 @@ td {
   width: 150px;
   height: 125px;
   position: relative;
-  top: 200px;
+  top: 500px;
   left: 1850px;
   background-image: url("/static/images/Pork-Steak-clipart-transparent.png");
   background-size: cover;
@@ -251,10 +251,10 @@ td {
 }
 
 
-/*@keyframes rock {*/
-/*  0%{left: 1900px;}*/
-/*  100%{left: -50px;}*/
-/*}*/
+@keyframes rock {
+  0%{left: 1900px;}
+  100%{left: -50px;}
+}
 
 @keyframes meat {
   0%{left: 1850px;}
