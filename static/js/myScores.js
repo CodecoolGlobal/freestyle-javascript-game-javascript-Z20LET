@@ -7,9 +7,11 @@ function initPage() {
 
 function goBack() {
     const urlParts = window.location.pathname.split('/');
-    const backBtn = document.querySelector('a');
-    backBtn.href = "/?username="+urlParts[2];
-
+    const playBtn = document.querySelector('#playLink');
+    const scoreLink = document.querySelector('#scoresLink');
+    console.log(playBtn, scoreLink);
+    playBtn.href = "/game?username="+urlParts[2];
+    scoreLink.href = "/scores?username="+urlParts[2]
 }
 
 initPage()

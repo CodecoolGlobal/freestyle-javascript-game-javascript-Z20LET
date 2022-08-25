@@ -31,7 +31,8 @@ def get_user_scores(cursor, username):
     FROM users
     INNER JOIN scores s on users.id = s.users_id
     WHERE name ILIKE %(un)s
-    ORDER BY score DESC;
+    ORDER BY score DESC
+    LIMIT 5;
     """
     cursor.execute(query, {'un': username})
     return cursor.fetchall()
