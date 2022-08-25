@@ -42,6 +42,10 @@ def process_score(userscore, username):
     return redirect(url_for('/game'))
 
 
+
+
+
+
 if __name__ == "__main__":
     app.run(
         debug=True,
