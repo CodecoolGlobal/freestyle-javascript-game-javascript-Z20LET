@@ -30,7 +30,10 @@ function jump() {
     index = 0
     window.hungry = true
     dino.classList.add("jump-animation");
-    setTimeout(() => dino.classList.remove("jump-animation"), 400);
+    setTimeout(() => {
+        dino.classList.remove("jump-animation");
+        is_jump = false
+    }, 900);
 }
 
 
@@ -146,8 +149,18 @@ const sprites = [
 ];
 
 const jumpSprites = [
-    "/static/images/freedinosprite/png/Jump (2).png",
-    "/static/images/freedinosprite/png/Jump (7).png",
+    "/static/images/freedinosprite/png/Jump (1).png",
+     "/static/images/freedinosprite/png/Jump (2).png",
+     "/static/images/freedinosprite/png/Jump (3).png",
+     "/static/images/freedinosprite/png/Jump (4).png",
+     "/static/images/freedinosprite/png/Jump (5).png",
+     "/static/images/freedinosprite/png/Jump (6).png",
+     "/static/images/freedinosprite/png/Jump (7).png",
+     "/static/images/freedinosprite/png/Jump (8).png",
+     "/static/images/freedinosprite/png/Jump (9).png",
+     "/static/images/freedinosprite/png/Jump (10).png",
+     "/static/images/freedinosprite/png/Jump (11).png",
+     "/static/images/freedinosprite/png/Jump (12).png"
 ]
 
 
@@ -160,9 +173,6 @@ const updateImage = function() {
             index = 0;}
         dino.style.backgroundImage = 'url("' + jumpSprites[index] + '")';
         index ++
-        is_jump = false
-
-
     }
     else {
         if (index >= sprites.length){
@@ -172,4 +182,4 @@ const updateImage = function() {
     }
 }
 updateImage()
-let interval = setInterval(updateImage, 100);
+let interval = setInterval(updateImage, 80);

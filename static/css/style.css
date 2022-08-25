@@ -252,10 +252,10 @@ td {
 }
 
 
-/*@keyframes rock {*/
-/*  0%{left: 1900px;}*/
-/*  100%{left: -50px;}*/
-/*}*/
+@keyframes rock {
+  0%{left: 1900px;}
+  100%{left: -50px;}
+}
 
 @keyframes meat {
   0%{left: 1850px;}
@@ -263,7 +263,7 @@ td {
 }
 
 .jump-animation {
-  animation: jump 1.2s;
+  animation: jump 2.5s;
 }
 
 @keyframes jump {
