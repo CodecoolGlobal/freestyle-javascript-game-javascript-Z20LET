@@ -373,7 +373,6 @@ table#my_scores_table>tbody>tr>td {
   top: 225px;
   position: center;
   margin: auto;
-  background-image: url("/static/images/high_scores.jpg");
   background-size: cover;
 }
 
