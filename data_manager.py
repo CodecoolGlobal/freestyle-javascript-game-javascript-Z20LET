@@ -22,13 +22,13 @@ def list_scores(cursor):
     """
     cursor.execute(query)
     return cursor.fetchall()
-
+#
 # @database_connection.connection_handler
 # def delete(cursor):
 #     query = """
 #     delete from users where name is Null;"""
 #     cursor.execute(query)
-#
+# #
 # delete()
 # @database_connection.connection_handler
 # def insert_data(cursor):

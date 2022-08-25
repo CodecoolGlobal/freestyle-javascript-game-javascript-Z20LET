@@ -11,18 +11,15 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        try:
-            data_manager.add_user(request.form.get('name'))
-        except UniqueViolation:
-            pass
-        session['username'] = request.form.get('name')
-        # return redirect(url_for('game'))
     return render_template('index.html')
 
 
 @app.route("/game")
 def game():
+    try:
+        data_manager.add_user(request.args.get('username'))
+    except UniqueViolation:
+        pass
     return render_template('game.html')
 
 

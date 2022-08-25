@@ -194,6 +194,13 @@ td {
   align-content: flex-end;
   padding-top: 2em;
 }
+
+.container.btns.nouser {
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 2em;
+}
+
 /*GAME STYLE*/
 
 #score { text-align: center; }
