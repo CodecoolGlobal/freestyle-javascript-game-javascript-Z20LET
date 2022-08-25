@@ -85,7 +85,6 @@ setInterval(() => {
         }
 
     let t = touching(dinoRect, rockRectangle)
-    // if (t === true) {console.log(window.hit)}
     if (t && window.hit) {
         window.hit = false
         food -= 3;
@@ -113,19 +112,14 @@ setInterval(() => {
     }
 
     t = touching(dinoRect, meatRect)
-    console.log(t)
-    // console.log(dinoRect.x, dinoRect.y, meatRect.x, meatRect.y);
     if (t && window.hungry) {
         window.hungry = false
         meat.style.display = 'none';
         food += 1;
         life.innerText = food
     setTimeout(()=> {meat.style.display = 'flex';
-        randomSeed = Math.floor(Math.random() * 6000);}, randomSeed)
+        randomSeed = Math.floor(Math.random() * 20000);}, randomSeed)
     }
-
-
-
 }, 50);
 
 
@@ -159,7 +153,7 @@ const sprites = [
 ];
 
 const jumpSprites = [
-    "/static/images/freedinosprite/png/Jump (1).png",
+     "/static/images/freedinosprite/png/Jump (1).png",
      "/static/images/freedinosprite/png/Jump (2).png",
      "/static/images/freedinosprite/png/Jump (3).png",
      "/static/images/freedinosprite/png/Jump (4).png",
