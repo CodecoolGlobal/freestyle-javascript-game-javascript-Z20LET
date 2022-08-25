@@ -11,7 +11,10 @@
 <body id="myscores">
      <div class='title' id="my_scores" data-splitting="lines">
          {% if user_scores|length != 0  %}
-            {{ user_scores[0].name }}
+             {% set nameList =  user_scores[0].name.split(' ') %}
+                    {% for name in nameList %}
+                        {{ name }}<br>
+                    {% endfor %}
          {% else %}
             NO <br>
             SCORES

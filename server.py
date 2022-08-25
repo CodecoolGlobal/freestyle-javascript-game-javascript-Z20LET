@@ -15,7 +15,7 @@ def index():
 @app.route("/game")
 def game():
     try:
-        data_manager.add_user(request.args.get('username'))
+        data_manager.add_user(request.args.get('username').upper())
     except UniqueViolation:
         pass
     return render_template('game.html')
@@ -37,13 +37,10 @@ def my_scores(username):
 def process_score(userscore, username):
     userscore = json.loads(userscore)
     username = json.loads(username)
+    print(username)
     user_id = data_manager.get_user_id(username)
     data_manager.add_user_score(user_id.get('id'), userscore)
     return redirect(url_for('my_scores', username=username))
-
-
-
-
 
 
 if __name__ == "__main__":
