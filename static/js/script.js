@@ -30,7 +30,7 @@ function jump() {
 
 
 document.addEventListener('keydown', (event) => {
-    console.log(event)
+    // console.log(event)
     if (event.code === 'ArrowRight'){
         moveRight();
     }
@@ -66,9 +66,9 @@ setInterval(() => {
             randomSeed = Math.floor(Math.random() * 6000);}, randomSeed)
     }
 
-    let d1 = document.getElementById('dino').getBoundingClientRect();
-    let d2 = document.getElementById('meat').getBoundingClientRect();
-    let d3 = document.getElementById('rock').getBoundingClientRect();
+    let dinoRect = document.getElementById('dino').getBoundingClientRect();
+    let meatRect = document.getElementById('meat').getBoundingClientRect();
+    let rockRectangle = document.getElementById('rock').getBoundingClientRect();
 
     function touching(d1, d2) {
         let ox = Math.abs(d1.x - d2.x) < (d1.x < d2.x ? d2.width : d1.width);
@@ -76,7 +76,8 @@ setInterval(() => {
         return ox && oy;
     }
 
-    let t = touching(d1, d3)
+    let t = touching(dinoRect, rockRectangle)
+    // if (t === true) {console.log(window.hit)}
     if (t && window.hit) {
         window.hit = false
         food -= 2;
@@ -87,7 +88,8 @@ setInterval(() => {
         }
     }
 
-    t = touching(d1, d2) // should return whether they are touching
+    t = touching(dinoRect, meatRect) // should return whether they are touching
+    console.log(dinoRect.x, dinoRect.y, meatRect.x, meatRect.y);
     if (t && window.hungry) {
         window.hungry = false
         food += 1;
@@ -95,7 +97,7 @@ setInterval(() => {
     }
 
 
-    // console.log(t)
+
 }, 50);
 
 
