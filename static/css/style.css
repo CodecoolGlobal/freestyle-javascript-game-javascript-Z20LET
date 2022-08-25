@@ -18,6 +18,11 @@ body { margin: auto;}
   margin-left: 20px;
 }
 
+#presentationButton {
+  align-self: center;
+  font-size: 150px;
+}
+
 .title {
   text-align: center;
   font-family: 'Silkscreen', cursive;
