@@ -26,6 +26,14 @@ body { margin: auto;}
   font-size: 150px;
 }
 
+#presentation_table {
+    width: 1020px;
+}
+#presentation_table>tbody {
+  background-color: blueviolet;
+  font-size: 40px;
+}
+
 .title {
   text-align: center;
   font-family: 'Silkscreen', cursive;

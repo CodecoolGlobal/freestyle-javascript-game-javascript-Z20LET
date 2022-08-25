@@ -1,7 +1,8 @@
 const title = document.querySelector('#h1');
 const names = document.querySelector('#names');
 const workFlow = document.querySelector('#workflow');
-const codeSnippets = document.querySelector('#snippets');
+const branchNumber = document.querySelector('#snippets');
+const table = document.querySelector('.table');
 const snippetOne = document.querySelector('#snippet1');
 const snippetTwo = document.querySelector('#snippet2');
 const startGame = document.querySelector('a')
@@ -12,13 +13,18 @@ title.addEventListener('click', (e) => {
 });
 
 workFlow.addEventListener('click', (e) => {
-     codeSnippets.classList.remove('inactive')
+     branchNumber.classList.remove('inactive')
 });
 
-codeSnippets.addEventListener('click', (e) => {
+branchNumber.addEventListener('click', (e) => {
      title.classList.add('inactive');
      workFlow.classList.add('inactive');
-     codeSnippets.classList.add('inactive');
+     branchNumber.classList.add('inactive');
+     table.classList.remove('inactive')
+});
+
+table.addEventListener('click', (e) => {
+     table.classList.add('inactive');
      snippetOne.classList.remove('inactive')
 });
 
