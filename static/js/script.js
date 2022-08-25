@@ -6,6 +6,7 @@ const life = document.getElementById("life");
 let food = 1
 window.hit = true
 let left = 0;
+let randomSeed = Math.floor(Math.random() * 6000);
 
 
 
@@ -46,8 +47,6 @@ document.addEventListener('keydown', (event) => {
 
 setInterval(() => {
     life.innerText = food
-    const dinoTop = parseInt(window.getComputedStyle(dino)
-        .getPropertyValue('top'));
     const rockLeft = parseInt(window.getComputedStyle(rock)
         .getPropertyValue('left'));
     const meatLeft = parseInt(window.getComputedStyle(meat)
@@ -63,20 +62,10 @@ setInterval(() => {
     }
     if (meatLeft < 0) {
         meat.style.display = 'none';
-    } else {
-        meat.style.display = ''
-
+        setTimeout(()=> {meat.style.display = '';
+            randomSeed = Math.floor(Math.random() * 6000);}, randomSeed)
     }
 
-    // if (rockLeft < 50 && rockLeft > 0 && dinoTop > 150) {
-    //     food -= 1;
-    //     life.innerText = food
-    //     if (food==0){
-    //         alert("You got a score of: " + score.innerText +
-    //         "\n\nPlay again?");
-    //     location.reload();}
-    //
-    // }
     let d1 = document.getElementById('dino').getBoundingClientRect();
     let d2 = document.getElementById('meat').getBoundingClientRect();
     let d3 = document.getElementById('rock').getBoundingClientRect();

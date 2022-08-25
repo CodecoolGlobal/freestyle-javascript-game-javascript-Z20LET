@@ -183,7 +183,15 @@ td {
 }
 /*GAME STYLE*/
 
-#score { text-align: center; }
+#score {
+  z-index: 15;
+  width: 50px;
+  height: 50px;
+  color: red;
+  text-align: center;
+}
+
+
 #life { text-align: center; }
 
 
@@ -231,7 +239,7 @@ td {
   left: 1850px;
   background-image: url("/static/images/Pork-Steak-clipart-transparent.png");
   background-size: cover;
-  animation: meat 5.0s linear;
+  animation: meat 2.0s linear;
 }
 
 
@@ -358,7 +366,7 @@ td {
 
 @keyframes close {
   from {
-    background-position: 600000px
+    background-position: 3000000px
   }
   to {
     background-position: 1px
