@@ -367,15 +367,6 @@ table#my_scores_table>tbody>tr>td {
   25% {transform: translateY(-400px)}
 }
 
-#high_scores {
-  height: 300px;
-  width: 300px;
-  top: 225px;
-  position: center;
-  margin: auto;
-  background-size: cover;
-}
-
 .center {
   margin-left: auto;
   margin-right: auto;
