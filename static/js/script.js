@@ -84,6 +84,12 @@ setInterval(() => {
         life.innerText = food
         if (food <= 0) {
             alert("You got a score of: " + score.innerText + "\n\nPlay again?");
+            const userscore = score.innerText;
+            let params = new URLSearchParams(document.location.search);
+            const username = params.get('username');
+            const request =new XMLHttpRequest();
+            request.open('POST', "/scores/"+JSON.stringify(userscore)+"/"+JSON.stringify(username));
+            request.send();
             location.reload();
         }
     }
