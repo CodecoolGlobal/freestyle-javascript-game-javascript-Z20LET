@@ -22,6 +22,19 @@ def list_scores(cursor):
     """
     cursor.execute(query)
     return cursor.fetchall()
+
+
+@database_connection.connection_handler
+def get_user_scores(cursor, username):
+    query = """
+    SELECT name, score, time
+    FROM users
+    INNER JOIN scores s on users.id = s.users_id
+    WHERE name ILIKE %(un)s
+    ORDER BY score DESC;
+    """
+    cursor.execute(query, {'un': username})
+    return cursor.fetchall()
 #
 # @database_connection.connection_handler
 # def delete(cursor):

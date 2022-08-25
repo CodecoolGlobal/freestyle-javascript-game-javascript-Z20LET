@@ -29,6 +29,12 @@ def scores():
     return render_template('scores.html', scores_data=scores_data)
 
 
+@app.route("/scores/<username>")
+def my_scores(username):
+    user_scores = data_manager.get_user_scores(username)
+    return render_template('my_scores.html', user_scores=user_scores)
+
+
 if __name__ == "__main__":
     app.run(
         debug=True,

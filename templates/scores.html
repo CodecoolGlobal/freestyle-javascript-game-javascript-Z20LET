@@ -14,17 +14,16 @@
       SCORES
      </div>
      <div class="container">
-        <table class="table table-bordered">
-        <thead id="thead">
+        <table class="table table-bordered" id="scores_table">
+        <thead>
              <tr>
                  <th scope="col">Name</th>
                  <th scope="col">Score</th>
                  <th scope="col">Time</th>
              </tr>
          </thead>
-
         {% for scores in scores_data %}
-        <tbody id="tbody">
+        <tbody>
             <tr>
                 <td> {{ scores.name }}</td>
                 <td> {{ scores.score }}</td>

@@ -15,7 +15,7 @@ function changeScoresPage() {
         buttons.classList.remove('nouser');
         myScoresDiv.classList.remove('inactive');
         goBackLink.href = "/?username="+params.get('username');
-        myScoresLink.href = "/scores?username="+params.get('username')
+        myScoresLink.href = "/scores/"+params.get('username')
     }
 }
 
