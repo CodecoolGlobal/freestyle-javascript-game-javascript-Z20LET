@@ -5,7 +5,7 @@
 #scores { background: hsl(294, 78%, 35%) }
 #myscores { background: hsl(360, 97%, 30%) }
 #game_page { background: hsla(306, 38%, 70%, 1) }
-#presentation { background: hsla(206, 61%, 24%, 1)}
+#presentation { background-image: url("/static/images/bg.jpg") }
 html { height: 100%; display: flex}
 body { margin: auto;}
 
@@ -25,6 +25,23 @@ body { margin: auto;}
 #names>p {
   text-align: right;
 }
+
+pre {
+    border: 1px solid lightslategrey;
+    border-left: 3px solid lightslategrey;
+    color: burlywood;
+    page-break-inside: avoid;
+    font-family: "Noto Mono", monospace;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
 #presentationButton {
   align-self: center;
   font-size: 150px;

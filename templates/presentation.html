@@ -8,9 +8,12 @@
     <script src="../static/js/presentation.js" defer></script>
 </head>
 <body id="presentation">
+{#<div id="dino">#}
+{#    <img src ="/static/images/dead_dino.png" width="700px">#}
+{#</div>#}
 <div class="presentation_container">
     <div id="h1">
-        <h1><img src ="/static/images/dead_dino.png" width="700px">&ltCREATE NEW TEAM&gt</h1>
+        <h1>&ltCREATE NEW TEAM&gt</h1>
         <div id="names">
             <p>Szabi: </p>
             <p>Mate: JUMP | MOVE </p>
@@ -37,7 +40,28 @@
         </tr>
         </tbody>
     </table>
-    <p class="inactive" id="snippet1"><img src ="/static/images/snippets/food.png" width="2000px"> </p>
+    <pre class="inactive" id="snippet1">
+    if (meatLeft < 0) {
+        meat.style.display = 'none'
+        setTimeout(() => {
+            meat.style.display = 'flex';
+            randomSeed = Math.floor(Math.random() * 20000);
+        }, randomSeed)
+    }
+
+    t = touching(dinoRect, meatRect)
+    if (t && window.hungry) {
+        window.hungry = false
+        meat.style.display = 'none';
+        food += 1;
+        life.innerText = food
+        setTimeout(() => {
+            meat.style.display = 'flex';
+            randomSeed = Math.floor(Math.random() * 20000);
+        }, randomSeed)
+    }
+}, 50);
+    </pre>
     <p class="inactive" id="snippet2">Two</p>
     <a class="inactive" id="presentationButton" href="/index">GAME</a>
 </div>
