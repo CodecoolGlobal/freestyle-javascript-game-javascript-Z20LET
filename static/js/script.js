@@ -71,9 +71,8 @@ setInterval(() => {
     let rockRectangle = document.getElementById('rock').getBoundingClientRect();
 
     function touching(d1, d2) {
-        let ox = Math.abs(d1.x - d2.x) < (d1.x < d2.x ? d2.width : d1.width);
-        let oy = Math.abs(d1.y - d2.y) < (d1.y < d2.y ? d2.height : d1.height);
-        return ox && oy;
+        if (((d1.right>d2.left) && (d1.left<d2.right)) && ((d1.top>d2.bottom) && (d1.bottom<d2.top)))
+            {return true;}
     }
 
     let t = touching(dinoRect, rockRectangle)
@@ -89,7 +88,8 @@ setInterval(() => {
     }
 
     t = touching(dinoRect, meatRect) // should return whether they are touching
-    console.log(dinoRect.x, dinoRect.y, meatRect.x, meatRect.y);
+    console.log(t)
+    // console.log(dinoRect.x, dinoRect.y, meatRect.x, meatRect.y);
     if (t && window.hungry) {
         window.hungry = false
         food += 1;
