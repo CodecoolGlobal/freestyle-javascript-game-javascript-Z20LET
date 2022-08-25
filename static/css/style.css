@@ -3,6 +3,7 @@
 
 #index { background: hsl(520, 70%, 30%) }
 #scores { background: hsl(294, 78%, 35%) }
+#myscores { background: hsl(360, 97%, 30%) }
 html { height: 100%; display: flex}
 body { margin: auto;}
 
@@ -51,8 +52,8 @@ body { margin: auto;}
 }
 
 .title {
-  --min-font-size: 70;
-  --max-font-size: 140;
+  --min-font-size: 90;
+  --max-font-size: 160;
   font-size: calc(var(--min-font-size) * 1px);
 }
 
@@ -74,6 +75,10 @@ body { margin: auto;}
   align-items: center;
   row-gap: 80px;
   font-family: 'Silkscreen', cursive;
+}
+
+.inactive {
+  display: none;
 }
 
 .btn {
@@ -99,12 +104,21 @@ body { margin: auto;}
 
 #name {
   font-family: 'Silkscreen', cursive;
-  font-size: 24px;
+  font-size: 34px;
   text-align: center;
 }
 
 input:focus::placeholder {
   color: transparent;
+}
+
+#username {
+  font-family: 'Silkscreen', cursive;
+  font-size: 34px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  margin: 0;
 }
 
 .link {
@@ -133,8 +147,17 @@ a:active {
 
 /*SCORE PAGE*/
 
-#high_scores {
-  padding-bottom: 0.3em;
+.title .word {
+  position: relative;
+  display: inline-block;
+  color: darkred;
+  font-size: calc(((var(--line-index) + 1) * 25%) + 50%); /* We skew font-sizes to avoid emphasize on the top, due to perspective rotation */
+  text-shadow: 0.06em 0 black, 0.06em 0.06em black, 0 0.06em black, -0.06em 0.06em black, -0.06em 0 black, -0.06em -0.06em black, 0 -0.06em black, 0.06em -0.06em black;
+  transform-style: preserve-3d; /* Important as above, we need to make sure the pseudos share the same 3D space */
+}
+
+#high_scores, #my_scores {
+  padding-bottom: 0.2em;
 }
 
 .table {
@@ -154,11 +177,10 @@ table>tbody:last-child {
 }
 
 table>tbody {
-  /*animation: blinker 2s linear infinite;*/
   background-color: hsl(294, 78%, 46%);
 }
 
-table>tbody:nth-child(2) {
+table#scores_table>tbody:nth-child(2) {
   animation: blinker 3s linear infinite;
 }
 
@@ -181,6 +203,79 @@ td {
   align-content: flex-end;
   padding-top: 2em;
 }
+
+.container.btns.nouser {
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 2em;
+}
+
+/*MY SCORES PAGE*/
+
+#my_scores.title .word {
+  position: relative;
+  display: inline-block;
+  color: papayawhip;
+  font-size: calc(((var(--line-index) + 1) * 25%) + 50%); /* We skew font-sizes to avoid emphasize on the top, due to perspective rotation */
+  text-shadow: 0.06em 0 black, 0.06em 0.06em black, 0 0.06em black, -0.06em 0.06em black, -0.06em 0 black, -0.06em -0.06em black, 0 -0.06em black, 0.06em -0.06em black;
+  transform-style: preserve-3d; /* Important as above, we need to make sure the pseudos share the same 3D space */
+}
+
+
+#my_scores.title .word::before {
+  color: papayawhip;
+  text-shadow: 0.02em 0 black, 0.02em 0.02em black, 0 0.02em black, -0.02em 0.02em black, -0.02em 0 black, -0.02em -0.02em black, 0 -0.02em black, 0.02em -0.02em black;
+  transform: translateZ(calc(var(--layer-depth) * -0.5));
+}
+
+#my_score_container.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 80px;
+  font-family: 'Silkscreen', cursive;
+  color: white
+}
+
+
+.table {
+  font-size: 30px;
+  text-align: left;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 720px;
+}
+
+table#my_scores_table>thead {
+  border-bottom: 5px solid white;
+}
+
+table#my_scores_table>tbody:last-child {
+   border-bottom: 5px solid white;
+}
+
+table#my_scores_table>tbody {
+  background-color: hsla(160, 91%, 24%, 1);
+}
+
+table#my_scores_table>tbody:nth-child(2) {
+  animation: blinking 3s linear infinite;
+}
+
+@keyframes blinking{
+  50% {
+    background-color: hsla(160, 91%, 33%, 1)
+  }
+}
+
+table#my_scores_table>tbody>tr>td {
+  border-left: 5px dashed white;
+  border-right: 5px dashed white;
+  border-bottom:  5px dashed white;
+  height: 65px;
+}
+
+
 /*GAME STYLE*/
 
 #score {
@@ -271,16 +366,6 @@ td {
   100% {transform: translateY(-1px);}
   50% {transform: translateY(-2px);}
   25% {transform: translateY(-400px)}
-}
-
-#high_scores {
-  height: 300px;
-  width: 300px;
-  top: 225px;
-  position: center;
-  margin: auto;
-  background-image: url("/static/images/high_scores.jpg");
-  background-size: cover;
 }
 
 .center {

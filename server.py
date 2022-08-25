@@ -1,28 +1,23 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for
 from psycopg2.errors import UniqueViolation
-from datetime import timedelta
+import json
 import data_manager
 
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
-app.secret_key = b'\x1dH@\xb94\xc9\xb0\x8e\xd5\xa8\xfe\\r\x00\x0c\xb4'
-app.permanent_session_lifetime = timedelta(minutes=30)
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        try:
-            data_manager.add_user(request.form.get('name'))
-        except UniqueViolation:
-            pass
-        session['username'] = request.form.get('name')
-        return redirect(url_for('game'))
     return render_template('index.html')
 
 
 @app.route("/game")
 def game():
+    try:
+        data_manager.add_user(request.args.get('username'))
+    except UniqueViolation:
+        pass
     return render_template('game.html')
 
 
@@ -32,9 +27,19 @@ def scores():
     return render_template('scores.html', scores_data=scores_data)
 
 
-@app.route("/menu")
-def menu():
-    return render_template("index.html")
+@app.route("/scores/<username>")
+def my_scores(username):
+    user_scores = data_manager.get_user_scores(username)
+    return render_template('my_scores.html', user_scores=user_scores)
+
+
+@app.route("/scores/<string:userscore>/<string:username>", methods=['POST'])
+def process_score(userscore, username):
+    userscore = json.loads(userscore)
+    username = json.loads(username)
+    user_id = data_manager.get_user_id(username)
+    data_manager.add_user_score(user_id, userscore)
+    return redirect(url_for('/game'))
 
 
 if __name__ == "__main__":
