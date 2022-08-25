@@ -8,7 +8,7 @@ let food = 1
 window.hit = true
 
 let left = 0;
-let randomSeed = Math.floor(Math.random() * 6000);
+let randomSeed = Math.floor(Math.random() * 20000);
 let randomSeed2 = Math.floor(Math.random() * 4000);
 
 
@@ -75,10 +75,10 @@ setInterval(() => {
     let rockRectangle = document.getElementById('rock').getBoundingClientRect();
 
     function touching(d1, d2) {
-        if (d1.x < d2.x + d2.width &&
-            d1.x + d1.width > d2.x &&
-            d1.y < d2.y + d2.height &&
-            d1.y + d1.height > d2.y){
+        if (d1.x < d2.x + d2.width-100 &&
+            d1.x + d1.width-100 > d2.x &&
+            d1.y < d2.y + d2.height-100 &&
+            d1.y + d1.height-100 > d2.y){
             return true} else {
             return false
         }
@@ -88,7 +88,7 @@ setInterval(() => {
     // if (t === true) {console.log(window.hit)}
     if (t && window.hit) {
         window.hit = false
-        food -= 2;
+        food -= 3;
         life.innerText = food
         if (food <= 0) {
             alert("You got a score of: " + score.innerText + "\n\nPlay again?");
@@ -105,7 +105,7 @@ setInterval(() => {
     if (meatLeft < 0) {
        meat.style.display = 'none'
     setTimeout(()=> {meat.style.display = 'flex';
-        randomSeed = Math.floor(Math.random() * 6000);}, randomSeed)
+        randomSeed = Math.floor(Math.random() * 20000);}, randomSeed)
     }
 
     t = touching(dinoRect, meatRect)
