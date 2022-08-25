@@ -3,12 +3,13 @@ const rock = document.getElementById("rock");
 const meat = document.getElementById("meat");
 const score = document.getElementById("score");
 const life = document.getElementById("life");
+let is_jump = false
 let food = 1
 window.hit = true
+
 let left = 0;
 let randomSeed = Math.floor(Math.random() * 6000);
 let randomSeed2 = Math.floor(Math.random() * 4000);
-
 
 
 function moveRight() {
@@ -24,6 +25,7 @@ function moveLeft(){
 
 
 function jump() {
+    is_jump = true
     window.hungry = true
     dino.classList.add("jump-animation");
     setTimeout(() => dino.classList.remove("jump-animation"), 400);
@@ -39,7 +41,9 @@ document.addEventListener('keydown', (event) => {
         moveLeft();
     }
     if ((event.code === 'Space') && (!dino.classList.contains('jump-animation'))) {
+
         jump();
+
 
     }
 
@@ -54,19 +58,13 @@ setInterval(() => {
         .getPropertyValue('left'));
     score.innerText++;
 
+
     if (rockLeft < 0) {
         rock.style.display = 'none';
         setTimeout(()=> {rock.style.display = '';
             randomSeed2 = Math.floor(Math.random() * 4000);}, randomSeed2)
         window.hit=true
 
-    // } else {
-    //     rock.style.display = ''
-    }
-    if (meatLeft < 0) {
-        meat.style.display = 'none';
-        setTimeout(()=> {meat.style.display = '';
-            randomSeed = Math.floor(Math.random() * 6000);}, randomSeed)
     }
 
     let dinoRect = document.getElementById('dino').getBoundingClientRect();
@@ -95,13 +93,22 @@ setInterval(() => {
         }
     }
 
+    if (meatLeft < 0) {
+       meat.style.display = 'none'
+    setTimeout(()=> {meat.style.display = 'flex';
+        randomSeed = Math.floor(Math.random() * 6000);}, randomSeed)
+    }
+
     t = touching(dinoRect, meatRect)
     console.log(t)
     // console.log(dinoRect.x, dinoRect.y, meatRect.x, meatRect.y);
     if (t && window.hungry) {
         window.hungry = false
+        meat.style.display = 'none';
         food += 1;
         life.innerText = food
+    setTimeout(()=> {meat.style.display = 'flex';
+        randomSeed = Math.floor(Math.random() * 6000);}, randomSeed)
     }
 
 
@@ -156,12 +163,11 @@ const updateImage = function() {
     if (index >= sprites.length){
         index = 0;
     }
-    // console.log(sprites[index])
     dino.style.backgroundImage = 'url("' + sprites[index] + '")';
     index ++
-    // console.log(dino.style)
 }
 
 updateImage()
 
-let interval = setInterval(updateImage, 100);
+setInterval(updateImage, 100);
+
