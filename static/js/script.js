@@ -26,7 +26,7 @@ function moveLeft(){
 function jump() {
     window.hungry = true
     dino.classList.add("jump-animation");
-    setTimeout(() => dino.classList.remove("jump-animation"), 600);
+    setTimeout(() => dino.classList.remove("jump-animation"), 400);
 }
 
 
@@ -74,10 +74,14 @@ setInterval(() => {
     let rockRectangle = document.getElementById('rock').getBoundingClientRect();
 
     function touching(d1, d2) {
-        if (((d1.right>d2.left) && (d1.left<d2.right)) && ((d1.top>d2.bottom) && (d1.bottom<d2.top)))
-            {return true;}
-        else {return false}
-    }
+        if (d1.x < d2.x + d2.width &&
+            d1.x + d1.width > d2.x &&
+            d1.y < d2.y + d2.height &&
+            d1.y + d1.height > d2.y){
+            return true} else {
+            return false
+        }
+        }
 
     let t = touching(dinoRect, rockRectangle)
     // if (t === true) {console.log(window.hit)}
@@ -91,7 +95,7 @@ setInterval(() => {
         }
     }
 
-    t = touching(dinoRect, meatRect) // should return whether they are touching
+    t = touching(dinoRect, meatRect)
     console.log(t)
     // console.log(dinoRect.x, dinoRect.y, meatRect.x, meatRect.y);
     if (t && window.hungry) {
@@ -121,19 +125,30 @@ setInterval(() => {
         const newHeight = rootBoundingRect.height * (rootDivAspect / targetAspectRatio);
         container.style.height = newHeight + "px";
     }
+    }, 500);
 
-  }, 1000);
+const sprites = [
+    "/static/images/freedinosprite/png/Run (1).png",
+    "/static/images/freedinosprite/png/Run (2).png",
+    "/static/images/freedinosprite/png/Run (3).png",
+    "/static/images/freedinosprite/png/Run (4).png",
+    "/static/images/freedinosprite/png/Run (5).png",
+    "/static/images/freedinosprite/png/Run (6).png",
+    "/static/images/freedinosprite/png/Run (7).png",
+    "/static/images/freedinosprite/png/Run (8).png"
+];
 
- const sprites = [
-     "/static/images/freedinosprite/png/Run (1).png",
-     "/static/images/freedinosprite/png/Run (2).png",
-     "/static/images/freedinosprite/png/Run (3).png",
-     "/static/images/freedinosprite/png/Run (4).png",
-     "/static/images/freedinosprite/png/Run (5).png",
-     "/static/images/freedinosprite/png/Run (6).png",
-     "/static/images/freedinosprite/png/Run (7).png",
-     "/static/images/freedinosprite/png/Run (8).png"
- ];
+const jumpSprites = [
+    "/static/images/freedinosprite/png/Jump (1).png",
+    "/static/images/freedinosprite/png/Jump (2).png",
+    "/static/images/freedinosprite/png/Jump (3).png",
+    "/static/images/freedinosprite/png/Jump (4).png",
+    "/static/images/freedinosprite/png/Jump (5).png",
+    "/static/images/freedinosprite/png/Jump (6).png",
+    "/static/images/freedinosprite/png/Jump (7).png",
+    "/static/images/freedinosprite/png/Jump (8).png"
+]
+
 
 let index = 0
 

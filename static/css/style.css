@@ -341,7 +341,6 @@ td {
   z-index: 4;
   height: 100vh;
   width: 100%;
-  bottom: 3rem;
   position: absolute;
   background-size: cover;
   background-image: url("/static/images/bacgound_layers/trees_close.png");
