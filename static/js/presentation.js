@@ -1,4 +1,5 @@
 const title = document.querySelector('#h1');
+const names = document.querySelector('#names');
 const workFlow = document.querySelector('#workflow');
 const codeSnippets = document.querySelector('#snippets');
 const snippetOne = document.querySelector('#snippet1');
@@ -6,6 +7,7 @@ const snippetTwo = document.querySelector('#snippet2');
 const startGame = document.querySelector('a')
 
 title.addEventListener('click', (e) => {
+     names.classList.add('inactive');
      workFlow.classList.remove('inactive')
 });
 

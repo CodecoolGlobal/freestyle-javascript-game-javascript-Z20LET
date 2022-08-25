@@ -18,6 +18,9 @@ body { margin: auto;}
   margin-left: 20px;
 }
 
+#names>p {
+  text-align: right;
+}
 #presentationButton {
   align-self: center;
   font-size: 150px;
