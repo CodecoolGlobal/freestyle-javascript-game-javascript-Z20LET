@@ -12,6 +12,7 @@ let randomSeed = Math.floor(Math.random() * 6000);
 let randomSeed2 = Math.floor(Math.random() * 4000);
 
 
+
 function moveRight() {
         left += 20;
         dino.style.left = left + "px";
@@ -26,6 +27,7 @@ function moveLeft(){
 
 function jump() {
     is_jump = true
+    index = 0
     window.hungry = true
     dino.classList.add("jump-animation");
     setTimeout(() => dino.classList.remove("jump-animation"), 400);
@@ -41,9 +43,7 @@ document.addEventListener('keydown', (event) => {
         moveLeft();
     }
     if ((event.code === 'Space') && (!dino.classList.contains('jump-animation'))) {
-
         jump();
-
 
     }
 
@@ -146,28 +146,30 @@ const sprites = [
 ];
 
 const jumpSprites = [
-    "/static/images/freedinosprite/png/Jump (1).png",
     "/static/images/freedinosprite/png/Jump (2).png",
-    "/static/images/freedinosprite/png/Jump (3).png",
-    "/static/images/freedinosprite/png/Jump (4).png",
-    "/static/images/freedinosprite/png/Jump (5).png",
-    "/static/images/freedinosprite/png/Jump (6).png",
     "/static/images/freedinosprite/png/Jump (7).png",
-    "/static/images/freedinosprite/png/Jump (8).png"
 ]
 
 
 let index = 0
 
 const updateImage = function() {
-    if (index >= sprites.length){
-        index = 0;
+
+    if (is_jump){
+        if (index >= jumpSprites.length){
+            index = 0;}
+        dino.style.backgroundImage = 'url("' + jumpSprites[index] + '")';
+        index ++
+        is_jump = false
+
+
     }
-    dino.style.backgroundImage = 'url("' + sprites[index] + '")';
-    index ++
+    else {
+        if (index >= sprites.length){
+            index = 0}
+        dino.style.backgroundImage = 'url("' + sprites[index] + '")';
+        index++
+    }
 }
-
 updateImage()
-
-setInterval(updateImage, 100);
-
+let interval = setInterval(updateImage, 100);

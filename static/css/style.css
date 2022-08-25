@@ -263,7 +263,7 @@ td {
 }
 
 .jump-animation {
-  animation: jump 2.3s;
+  animation: jump 1.2s;
 }
 
 @keyframes jump {
