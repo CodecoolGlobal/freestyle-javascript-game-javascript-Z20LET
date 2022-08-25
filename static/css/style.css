@@ -199,7 +199,7 @@ td {
   height: 75px;
   width: 75px;
   top: 225px;
-  left: 0;
+  bottom: 0;
   position: relative;
   background-image: url("/static/images/dino.png");
   background-size: cover;
@@ -228,23 +228,23 @@ td {
 }
 
 
-@keyframes rock {
-  0%{left: 550px;}
-  100%{left: -50px;}
-}
+/*@keyframes rock {*/
+/*  0%{left: 550px;}*/
+/*  100%{left: -50px;}*/
+/*}*/
 
-@keyframes meat {
-  0%{left: 550px;}
-  100%{left: -50px;}
-}
+/*@keyframes meat {*/
+/*  0%{left: 550px;}*/
+/*  100%{left: -50px;}*/
+/*}*/
 
-.jump-animation {
-  animation: jump 0.7s;
+/*.jump-animation {*/
+/*  animation: jump 0.7s;*/
   /*animation-direction: alternate;*/
-}
+/*}*/
 
-@keyframes jump {
-  100% {transform: translateY(-100px)}
+/*@keyframes jump {*/
+/*  100% {transform: translateY(-100px)}*/
   /*100% {transform: translateY(0px)}*/
 
 
@@ -252,4 +252,4 @@ td {
   /*100% {transform: translateY(-1px);}*/
   /*50% {transform: translateY(-2px);}*/
   /*25% {transform: translateY(-100px)}*/
-}
+/*}*/
