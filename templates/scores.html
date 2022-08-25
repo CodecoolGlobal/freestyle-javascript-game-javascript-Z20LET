@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/style.css" />
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
-    <script src="../static/js/game.js" defer></script>
+    <script src="../static/js/highScores.js" defer></script>
 </head>
 <body id="scores">
      <div class='title' id="high_scores" data-splitting="lines">
@@ -34,12 +34,12 @@
         </tbody>
         </table>
      </div>
-    <div class="container btns">
-        <div class="link 1">
-            <a href="/">BACK</a>
+    <div class="container btns nouser">
+        <div class="link" id="link1">
+            <a href="/" id="backLink">BACK</a>
         </div>
-        <div class="link 2">
-            <a href="/scores">MY SCORES</a>
+        <div class="link inactive" id="link2">
+            <a href="/scores" id="myScoresLink">MY SCORES</a>
         </div>
     </div>
 </body>
