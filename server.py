@@ -7,7 +7,12 @@ import data_manager
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
+def presentation():
+    return render_template('presentation.html')
+
+
+@app.route("/index")
 def index():
     return render_template('index.html')
 
