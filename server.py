@@ -39,7 +39,7 @@ def process_score(userscore, username):
     username = json.loads(username)
     user_id = data_manager.get_user_id(username)
     data_manager.add_user_score(user_id.get('id'), userscore)
-    return redirect(url_for('/game'))
+    return redirect(url_for('my_scores', username=username))
 
 
 

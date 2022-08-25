@@ -4,6 +4,7 @@
 #index { background: hsl(520, 70%, 30%) }
 #scores { background: hsl(294, 78%, 35%) }
 #myscores { background: hsl(360, 97%, 30%) }
+#game_page { background: hsla(306, 38%, 70%, 1) }
 html { height: 100%; display: flex}
 body { margin: auto;}
 

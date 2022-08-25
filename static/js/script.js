@@ -97,8 +97,12 @@ setInterval(() => {
             const request =new XMLHttpRequest();
             request.open('POST', "/scores/"+JSON.stringify(userscore)+"/"+JSON.stringify(username));
             request.send();
-            alert("You got a score of: " + score.innerText + "\n\nPlay again?");
-            location.reload();
+            let now = Date.now(),
+                end = now + 1000;
+            while (now < end) { now = Date.now();}
+            window.location.href = "/scores/"+username;
+            // alert("You got a score of: " + score.innerText + "\n\nPlay again?");
+            // location.reload();
         }
     }
 
