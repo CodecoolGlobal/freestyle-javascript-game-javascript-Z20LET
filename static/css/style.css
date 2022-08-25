@@ -9,6 +9,9 @@
 html { height: 100%; display: flex}
 body { margin: auto;}
 
+
+/*PRESENTATION*/
+
 .presentation_container {
   display: flex;
   flex-flow: column nowrap;
@@ -16,6 +19,7 @@ body { margin: auto;}
   font-family: 'Silkscreen', cursive;
   font-size: 35px;
   margin-left: 20px;
+  color: burlywood;
 }
 
 #names>p {
@@ -29,9 +33,26 @@ body { margin: auto;}
 #presentation_table {
     width: 1020px;
 }
+
+#presentation_table>thead {
+  border-bottom: 5px solid lightslategrey;
+}
+
 #presentation_table>tbody {
-  background-color: blueviolet;
+  background-color: hsla(206, 61%, 34%, 1);
   font-size: 40px;
+  color: burlywood;
+}
+
+#presentation_table>tbody:last-child {
+   border-bottom: 5px solid lightslategrey;
+}
+
+#presentation_table>tbody>tr>td {
+  border-left: 5px dashed lightslategrey;
+  border-right: 5px dashed lightslategrey;
+  border-bottom:  5px dashed lightslategrey;
+  height: 65px;
 }
 
 .title {
