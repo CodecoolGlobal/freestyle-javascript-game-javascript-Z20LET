@@ -292,7 +292,25 @@ table#my_scores_table>tbody>tr>td {
   font-size: 40px;
   background-color: white;}
 
+#score_text{ text-align: center;
+  width: 100px;
+  height: 50px;
+  font-size: 40px;
+  background-color: transparent}
+
+#life_text{ text-align: center;
+  width: 100px;
+  height: 50px;
+  font-size: 40px;
+  background-color: white}
+
 #hud {
+  z-index: 13;
+  position: absolute;
+  bottom: 100px;
+}
+
+#hud2 {
   z-index: 13;
   position: absolute;
   bottom: 0px;
