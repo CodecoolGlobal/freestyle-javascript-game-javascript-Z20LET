@@ -2,43 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>High Scores</title>
+    <title>Dino Jump</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/style.css" />
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
-    <script src="../static/js/highScores.js" defer></script>
+    <script src="../static/js/myScores.js" defer></script>
 </head>
-<body id="scores">
-     <div class='title' id="high_scores" data-splitting="lines">
-      HIGH<br/>
-      SCORES
+<body id="myscores">
+     <div class='title' id="my_scores" data-splitting="lines">
+         {% if user_scores|length != 0  %}
+            {{ user_scores[0].name }}
+         {% else %}
+            NO <br>
+            SCORES
+         {% endif %}
      </div>
-     <div class="container">
-        <table class="table table-bordered" id="scores_table">
+     <div class="container" id="my_score_container">
+        <table class="table table-bordered" id="my_scores_table">
         <thead>
+         {% if user_scores|length != 0  %}
              <tr>
-                 <th scope="col">Name</th>
                  <th scope="col">Score</th>
                  <th scope="col">Time</th>
              </tr>
+        {% endif %}
          </thead>
-        {% for scores in scores_data %}
+        {% for score in user_scores %}
         <tbody>
             <tr>
-                <td> {{ scores.name }}</td>
-                <td> {{ scores.score }}</td>
-                <td> {{ scores.time.strftime("%m/%d %H:%M") }}</td>
+                <td> {{ score.score }}</td>
+                <td> {{ score.time.strftime("%m/%d %H:%M") }}</td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
         </table>
      </div>
     <div class="container btns nouser">
         <div class="link" id="link1">
             <a href="/" id="backLink">BACK</a>
-        </div>
-        <div class="link inactive" id="link2">
-            <a href="/scores" id="myScoresLink">MY SCORES</a>
         </div>
     </div>
 </body>
