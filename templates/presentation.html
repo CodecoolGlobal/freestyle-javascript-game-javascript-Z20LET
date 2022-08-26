@@ -8,13 +8,16 @@
     <script src="../static/js/presentation.js" defer></script>
 </head>
 <body id="presentation">
+<!--<div id="dino">-->
+<!--    <img src ="/static/images/dead_dino.png" width="700px">-->
+<!--</div>-->
 <div class="presentation_container">
     <div id="h1">
         <h1>&ltCREATE NEW TEAM&gt</h1>
         <div id="names">
-            <p>Szabi: </p>
-            <p>Mate: JUMP | MOVE </p>
-            <p>Marci: </p>
+            <p>Szabi: GAME ENGINE</p>
+            <p>Máté: JUMP | MOVE </p>
+            <p>Marci: ANIMATION | ENGINE  </p>
             <p>Eszter: UI | DB | SERVER</p>
         </div>
     </div>
@@ -37,7 +40,42 @@
         </tr>
         </tbody>
     </table>
-    <pre class="inactive" id="snippet1">
+     <pre class="inactive" id="snippet1">
+let index = 0
+const updateImage = function() {
+
+    if (is_jump) {
+        if (index >= jumpSprites.length) {
+            index = 0;
+        }
+        dino.style.backgroundImage = 'url("' + jumpSprites[index] + '")';
+        index++
+    } else {
+        if (index >= sprites.length) {
+            index = 0
+        }
+        dino.style.backgroundImage = 'url("' + sprites[index] + '")';
+        index++
+    }
+}
+updateImage()
+let interval = setInterval(updateImage, 80);
+    </pre>
+    <pre class="inactive" id="snippet2">
+    let dinoRect = document.getElementById('dino').getBoundingClientRect();
+    let meatRect = document.getElementById('meat').getBoundingClientRect();
+    let rockRectangle = document.getElementById('rock').getBoundingClientRect();
+
+    function touching(d1, d2) {
+        if (d1.x < d2.x + d2.width - 100 &&
+            d1.x + d1.width - 100 > d2.x &&
+            d1.y < d2.y + d2.height - 100 &&
+            d1.y + d1.height - 100 > d2.y) {
+            return true
+        } else {
+            return false
+        }
+    }
     if (meatLeft < 0) {
         meat.style.display = 'none'
         setTimeout(() => {
@@ -59,7 +97,6 @@
     }
 }, 50);
     </pre>
-    <p class="inactive" id="snippet2">Two</p>
     <a class="inactive" id="presentationButton" href="/index">GAME</a>
 </div>
 </body>

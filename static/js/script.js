@@ -12,6 +12,7 @@ let randomSeed = Math.floor(Math.random() * 20000);
 let randomSeed2 = Math.floor(Math.random() * 4000);
 
 
+
 function moveRight() {
     left += 20;
     dino.style.left = left + "px";
@@ -32,7 +33,7 @@ function jump() {
     setTimeout(() => {
         dino.classList.remove("jump-animation");
         is_jump = false
-    }, 900);
+    }, 1200);
 }
 
 
@@ -83,10 +84,10 @@ setInterval(() => {
             return true
         } else {
             return false
-        }
-    }
+        }}
 
     let t = touching(dinoRect, rockRectangle)
+    // if (t === true) {console.log(window.hit)}
     if (t && window.hit) {
         window.hit = false
         food -= 3;
@@ -128,6 +129,9 @@ setInterval(() => {
             randomSeed = Math.floor(Math.random() * 20000);
         }, randomSeed)
     }
+
+
+
 }, 50);
 
 
@@ -147,7 +151,7 @@ setInterval(() => {
         const newHeight = rootBoundingRect.height * (rootDivAspect / targetAspectRatio);
         container.style.height = newHeight + "px";
     }
-}, 500);
+    }, 500);
 
 const sprites = [
     "/static/images/freedinosprite/png/Run (1).png",
@@ -178,7 +182,7 @@ const jumpSprites = [
 
 let index = 0
 
-const updateImage = function () {
+const updateImage = function() {
 
     if (is_jump) {
         if (index >= jumpSprites.length) {

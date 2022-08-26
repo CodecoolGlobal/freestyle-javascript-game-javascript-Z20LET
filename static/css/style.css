@@ -27,8 +27,8 @@ body { margin: auto;}
 }
 
 pre {
-    border: 1px solid lightslategrey;
-    border-left: 3px solid lightslategrey;
+/*    border: 1px solid lightslategrey;
+    border-left: 3px solid lightslategrey;*/
     color: burlywood;
     page-break-inside: avoid;
     font-family: "Noto Mono", monospace;
