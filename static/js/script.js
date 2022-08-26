@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         bottom = bottom * gravity
                         console.log('down', bottom)
                         dino.style.bottom = bottom + 'px'
-                    }, 20)
+                    }, 60)
                 }
                 //jump up
                 isJump = true
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 bottom = bottom * gravity
                 console.log('up', bottom)
                 dino.style.bottom = bottom + 'px'
-            }, 20)
+            }, 60)
         }
 
 
